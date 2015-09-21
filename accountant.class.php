@@ -78,14 +78,13 @@ class Accountant {
 		$printer = new TaskPrinter($this->language);
 		$json=array();
 		foreach($tasks as $key=>$task){
-			$printer->printTaskBegin($task);
+			$json[$key]["date"]= $printer->taskBegin($task);
 			
-			$printer->printTaskBody($task);
+			$json[$key]["body"]=$printer->taskBody($task);
 			
-			$printer->printTaskDeadLine($task);
-			
+			$json[$key]["deadline"]=$printer->taskDeadLine($task);
 		}
-		
+		echo json_encode($json, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE);
 	}
 
 	private function addDeclaration($begin_year, $end_year, $frame){

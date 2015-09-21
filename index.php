@@ -15,10 +15,13 @@
 					type: "POST",
 					url:"taxes.php", 
 					data:values, 
-					datatype: "json",
+					dataType: "json",
 					success:function(result){
-						$("#tasks").html(result);
-						//alert(result);
+						
+						$.each(result, function(key, val){
+							$("#tasks").append("<tr><td>"+val.date+"</td><td>"+val.body+"</td><td>"+val.deadline+"</td></tr>")
+						});
+						;
 					}
 				});
 				

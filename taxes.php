@@ -21,7 +21,7 @@ $accountant->setPeriod($period_from, $period_to);
 $accountant->setEsvFrame($esv_frame);
 $accountant->setLanguage($language);
 
-$accountant->printTasks();
+$accountant->printTasksJSON();
 //$accountant->printRawTasks();
 
 
